@@ -1,0 +1,86 @@
+{
+	"github": "TDMAmko/TDMF_Translation_EN",
+	"title": "TDMF ENG (READ DESC)",
+	"systems": [
+		"3DS"
+	],
+	"categories": [
+		"utility"
+	],
+	"description": "Collaboraiton project to tranlsate The Denpa Men Free into English ",
+	"long_description": "Collaboration project to tranlsate The Denpa Men Free into English. This project contains an overview of fully translated, partly translated and yet to be translated text files. Keep in mind that this project will expand and does not provide all existing text files as of now.\n===\nMARKED AS LEGACY SINCE METHOD OF DISTRIBUTION UNNECESSARILY OVERWRITES GAME ASSETS.\n===",
+	"icon": "https://cdn.discordapp.com/attachments/1260863690668773477/1268845663165349888/DPMF_en_legacy.png?ex=66ade81c&is=66ac969c&hm=b7b7292d226b62de96e78b3526fa685df3e40b763302c7c76ee06bc6b51bb4ac&",
+	"scripts": {
+		"Setup (Game patch)": [
+			{
+				"type": "rmdir",
+				"directory": "sdmc:/luma/titles/0004000000125D00",
+				"required": false
+			},
+			{
+				"type": "downloadRelease",
+				"repo": "TDMAmko/TDMF_Translation_EN",
+				"file": "TDMF.Translation.Patch.V.0.2.zip",
+				"output": "sdmc:/TDMF.Translation.Patch.V.0.2.zip",
+				"includePrereleases": false
+			},
+			{
+				"type": "extractFile",
+				"file": "sdmc:/TDMF.Translation.Patch.V.0.2.zip",
+				"input": "TDMF Translation Patch V.0.2/",
+				"output": "sdmc:/luma/titles/0004000000125D00/"
+			},
+			{
+				"type": "deleteFile",
+				"file": "sdmc:/TDMF.Translation.Patch.V.0.2.zip"
+			}
+		],
+		"Setup (ModMoon - Slot 1)": [
+			{
+				"type": "promptMessage",
+				"message": "Create game folder?",
+				"count": 1
+			},
+			{
+				"type": "mkdir",
+				"directory": "%3DSX%/ModMoon/0004000000125D00/"
+			},
+			{
+				"type": "rmdir",
+				"directory": "%3DSX%/ModMoon/0004000000125D00/Slot_1",
+				"required": false
+			},
+			{
+				"type": "downloadRelease",
+				"repo": "TDMAmko/TDMF_Translation_EN",
+				"file": "TDMF.Translation.Patch.V.0.2.zip",
+				"output": "sdmc:/TDMF.Translation.Patch.V.0.2.zip",
+				"includePrereleases": false
+			},
+			{
+				"type": "extractFile",
+				"file": "sdmc:/TDMF.Translation.Patch.V.0.2.zip",
+				"input": "TDMF Translation Patch V.0.2/",
+				"output": "%3DSX%/ModMoon/0004000000125D00/Slot_1/"
+			},
+			{
+				"type": "deleteFile",
+				"file": "sdmc:/TDMF.Translation.Patch.V.0.2.zip"
+			}
+		],
+		"Uninstall (Game patch)": [
+			{
+				"type": "rmdir",
+				"directory": "sdmc:/luma/titles/0004000000125D00",
+				"required": true
+			}
+		],
+		"Uninstall (ModMoon - Slot 1)": [
+			{
+				"type": "rmdir",
+				"directory": "sdmc:/luma/titles/0004000000125D00",
+				"required": true
+			}
+		]
+	}
+}
